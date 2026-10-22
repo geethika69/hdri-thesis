@@ -1,0 +1,23 @@
+# One manifest per run. Hash the manifests and the experiment matrix at the freeze.
+run_id: "string, unique, e.g. W-A-svcX-ramp-lat-hi-r1"
+block: "impact_primary | impact_secondary | warning | concurrent | soak | pilot"
+tier: "1 (real link) | 2 (emulated link)"
+placement: "A | B"
+link_profile: "low | mid | high"
+target: "service name or 'interconnect'"
+fault:
+  type: "fail_stop | partition | latency | error_rate | ramp_latency | ramp_saturation"
+  intensity: "string or number, fixed in the freeze sheet"
+seed: 0
+app_version: "git SHA or image tag"
+timestamps:
+  warmup_start: null
+  baseline_start: null
+  fault_start: null
+  event_time: null        # filled from load-generator log
+  restore_end: null
+validity:
+  workload_ok: null
+  fault_start_logged: null
+  restoration_ok: null
+valid: null
